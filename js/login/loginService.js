@@ -1,6 +1,6 @@
 var app = angular.module('myMovieCollectionApp');
 
-app.service('loginService', function($firebaseAuth, $location) {
+app.service('loginService', function($firebaseAuth, $location, $state) {
 
     var ref = new Firebase("https://mymoviecollection.firebaseio.com/");
 
@@ -11,7 +11,7 @@ app.service('loginService', function($firebaseAuth, $location) {
             email: email,
             password: pass
         }).then(function(authData) {
-            if(authData) {
+            if (authData) {
                 $location.path('/search');
                 console.log(authData);
             }
@@ -19,6 +19,28 @@ app.service('loginService', function($firebaseAuth, $location) {
             alert("Login Failed ", error);
         });
     };
+
+    this.googleLogin = function() {
+        ref.authWithOAuthPopup("google", function(error, authData) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+                $state.go('search');
+            }
+        });
+    };
+
+    this.facebookLogin = function() {
+        ref.authWithOAuthPopup("facebook", function(error, authData) {
+            if (error) {
+                console.log("Login Failed!", error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+                $state.go('search');
+            }
+        });
+    }
 
     this.logout = function() {
         ref.unauth();

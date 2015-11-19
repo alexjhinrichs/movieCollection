@@ -7,6 +7,8 @@
             <input type="email" placeholder="Email" class="form-control" ng-model="email" required><br>
             <input type="password" placeholder="Password" class="form-control" ng-model="pass" required><br>
             <input type="submit" class="btn btn-primary" value="Sign In">
+            <button class="btn btn-warn" ng-click="googleLogin()">Login with Google</button>
+            <button class="btn btn-primary" ng-click="facebookLogin()">Login with Facebook</button>
         </form>
     </div>
     <div ng-show="reg">
@@ -21,3 +23,4 @@
         </form>
     </div>
 </div>
+
