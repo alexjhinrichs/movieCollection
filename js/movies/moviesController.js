@@ -1,5 +1,8 @@
 var app = angular.module('myMovieCollectionApp');
 
-app.controller('moviesController', ['$scope', function($scope) {
+app.controller('moviesController', ['$scope', '$firebaseAuth', 'currentAuth', function($scope, $firebaseAuth, currentAuth) {
+
+
+
 
 }]);

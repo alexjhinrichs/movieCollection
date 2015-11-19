@@ -1,1 +1,23 @@
-<h1>Login</h1>
+<div class="jumbotron col-md-6 col-md-offset-3 dash-head">
+    <a href="" ng-click="showReg()">{{status}}</a>
+    <div ng-show="!reg">
+        <h2>Login</h2>
+        <form ng-submit="login(email, pass)">
+            <p ng-show="error" class="text-danger">{{ error }}</p>
+            <input type="email" placeholder="Email" class="form-control" ng-model="email" required><br>
+            <input type="password" placeholder="Password" class="form-control" ng-model="pass" required><br>
+            <input type="submit" class="btn btn-primary" value="Sign In">
+        </form>
+    </div>
+    <div ng-show="reg">
+        <h2>Register</h2>
+        <!-- Step One Of Registration-->
+        <form ng-submit="signUp(name, email, pass)">
+            <p ng-show="error" class="text-danger">{{ error }}</p>
+            <input class="form-control" type="text" placeholder="Full Name" ng-model="name" required /><br />
+            <input class="form-control" type="email" placeholder="Email" ng-model="email" required /><br />
+            <input class="form-control" type="password" placeholder="Password" ng-model="pass" required /><br />
+            <input type="submit" class="btn btn-primary btn-lg" value="Register" />
+        </form>
+    </div>
+</div>

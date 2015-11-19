@@ -1,6 +1,15 @@
 var app = angular.module('myMovieCollectionApp');
 
-app.controller('mainController', ['$scope', '$firebaseObject', '$firebaseArray', '$firebaseAuth', function($scope, $firebaseObject, $firebaseArray, $firebaseAuth){
+app.controller('mainController', ['$scope', '$firebaseObject', '$firebaseArray', '$firebaseAuth', 'loginService',
+    function($scope, $firebaseObject, $firebaseArray, $firebaseAuth, loginService) {
 
-	var ref = new Firebase('https://mymoviecollection.firebaseio.com/');
-}]);
+        $scope.logout = function() {
+            loginService.logout();
+        };
+
+
+
+
+
+    }
+]);

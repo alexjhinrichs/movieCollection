@@ -2,7 +2,7 @@
 
 <html ng-app="myMovieCollectionApp">
 	<head>
-		<title>My Personal Finances</title>
+		<title>My Movie Collection</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	</head>
@@ -31,6 +31,7 @@
 		</div>
 		<!-- /Navbar -->
 		<div class="container">
+			<button class="logout btn btn-primary col-xs-1 col-xs-offset-11" ng-click="logout()" ng-hide="authData"> Logout </button>
 			<div ui-view></div>
 		</div>
 
@@ -51,13 +52,14 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 		<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 		<script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+		<script src="https://cdn.firebase.com/js/simple-login/1.6.2/firebase-simple-login.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/mainController.js"></script>
-		<script src="js/mainService.js"></script>
-		<script src="js/login/authenticationController.js"></script>
-		<script src="js/login/authenticationService.js"></script>
+		<script src="js/login/registerService.js"></script>
+		<script src="js/login/loginController.js"></script>
+		<script src="js/login/loginService.js"></script>
 		<script src="js/movies/moviesController.js"></script>
 		<script src="js/tv/tvController.js"></script>
 		<script src="js/search/searchController.js"></script>
