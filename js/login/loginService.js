@@ -40,11 +40,11 @@ app.service('loginService', function($firebaseAuth, $location, $state) {
                 $state.go('search');
             }
         });
-    }
+    };
 
     this.logout = function() {
         ref.unauth();
-        $location.path('/login');
+        $state.go('login');
     };
 
 });

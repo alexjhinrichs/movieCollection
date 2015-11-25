@@ -1,1 +1,15 @@
-<h1>Search</h1>
+<form class="form-inline text-center" ng-submit="findMovies(searchValue)">
+	<input placeholder="Search by title" class="form-control" ng-model="searchValue" required> 
+	<input type="submit" class="btn btn-primary form-control" value="Search"></input>
+</form>
+
+<div class="row">
+	<div ng-repeat="movie in movieData" class="col-md-3 thumbnail text-center"> 
+		<img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+		<h5>{{movie.original_title}}</h5>
+		<button class="btn btn-primary active">Add to my Collection</button>
+
+
+
+	</div>
+</div>
