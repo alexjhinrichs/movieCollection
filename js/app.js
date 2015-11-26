@@ -1,4 +1,4 @@
-var app = angular.module('myMovieCollectionApp', ['ui.router', 'firebase', 'ngMaterial', 'ngAnimate', 'ngAria']);
+var app = angular.module('myMovieCollectionApp', ['ui.router', 'firebase', 'ngMaterial', 'ngAnimate', 'ngAria', 'ui.grid']);
 
 app.factory("auth", ["$firebaseAuth",
     function($firebaseAuth) {
@@ -12,18 +12,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
-        .state('collection', {
-            url: '/collection',
-            templateUrl: '/js/collection/collectionTemplate.html',
-            controller: 'collectionController',
-            resolve: {
-                currentAuth: ["auth",
-                    function(auth) {
-                        return auth.$requireAuth();
-                    }
-                ]
-            }
-        })
         .state('search', {
             url: '/search',
             templateUrl: '/js/search/searchTemplate.html',
@@ -36,7 +24,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 ]
             }
         })
-
+        .state('collection', {
+            url: '/collection',
+            templateUrl: '/js/collection/collectionTemplate.html',
+            controller: 'collectionController',
+            resolve: {
+                currentAuth: ["auth",
+                    function(auth) {
+                        return auth.$requireAuth();
+                    }
+                ]
+            }
+        })
     .state('overview', {
         url: '/overview',
         templateUrl: '/js/overview/overviewTemplate.html',

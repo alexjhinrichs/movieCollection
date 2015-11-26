@@ -12,7 +12,7 @@ app.service('loginService', function($firebaseAuth, $location, $state) {
             password: pass
         }).then(function(authData) {
             if (authData) {
-                $location.path('/search');
+                $state.go('/search');
                 console.log(authData);
             }
         }).catch(function(error) {

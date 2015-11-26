@@ -12,8 +12,6 @@ app.controller('loginController', ['$scope', '$firebaseAuth', '$firebaseObject',
             registerService.signUp(name, email, pass);
         };
 
-
-
         $scope.googleLogin = function() {
             loginService.googleLogin();
             $rootScope.authData = true;
