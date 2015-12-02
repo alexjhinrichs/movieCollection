@@ -6,18 +6,6 @@ app.service('loginService', function($firebaseAuth, $location, $state, $q) {
 
     this.authObj = $firebaseAuth(ref);
 
-    this.isAuthed;
-
-    this.checkAuth = function(){
-        if(ref.getAuth()){
-            console.log("setting isAUthed to true")
-            isAuthed = true;
-        } else {
-            isAuthed = false;
-        };
-        return isAuthed;
-    };
-
     this.login = function(email, pass) {
         this.authObj.$authWithPassword({
             email: email,
