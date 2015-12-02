@@ -4,7 +4,8 @@ app.service('loginService', function($firebaseAuth, $location, $state) {
 
     var ref = new Firebase("https://mymoviecollection.firebaseio.com/");
 
-    this.authObj = $firebaseAuth(ref);
+    var authObj = $firebaseAuth(ref);
+    var user = authObj.$getAuth();
 
     this.login = function(email, pass) {
         this.authObj.$authWithPassword({
@@ -13,6 +14,7 @@ app.service('loginService', function($firebaseAuth, $location, $state) {
         }).then(function(authData) {
             if (authData) {
                 $state.go('/search');
+
                 console.log(authData);
             }
         }).catch(function(error) {
@@ -41,6 +43,10 @@ app.service('loginService', function($firebaseAuth, $location, $state) {
             }
         });
     };
+
+    authObj.$onAuth(function(authObj) {
+        this.user = authObj;
+    });
 
     this.logout = function() {
         ref.unauth();

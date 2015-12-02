@@ -16,4 +16,8 @@ app.service('mainService', function($http, $q) {
         return dfr.promise;
     };
 
+    this.addMovie = function() {
+
+    };
+
 });
