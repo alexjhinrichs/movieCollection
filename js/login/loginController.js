@@ -1,11 +1,10 @@
 var app = angular.module('myMovieCollectionApp');
 
-app.controller('loginController', ['$scope', '$firebaseAuth', '$firebaseObject', 'loginService', 'registerService', '$rootScope',
-    function($scope, $firebaseAuth, $firebaseObj, loginService, registerService, $rootScope) {
+app.controller('loginController', ['$scope', '$firebaseAuth', '$firebaseObject', 'loginService', 'registerService',
+    function($scope, $firebaseAuth, $firebaseObj, loginService, registerService) {
 
         $scope.login = function(email, pass) {
             loginService.login(email, pass);
-            $rootScope.authData = true;
         };
 
         $scope.signUp = function(name, email, pass) {
@@ -14,12 +13,10 @@ app.controller('loginController', ['$scope', '$firebaseAuth', '$firebaseObject',
 
         $scope.googleLogin = function() {
             loginService.googleLogin();
-            $rootScope.authData = true;
         };
 
         $scope.facebookLogin = function() {
             loginService.facebookLogin();
-            $rootScope.authData = true;
         };
 
 

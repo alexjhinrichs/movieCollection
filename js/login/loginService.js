@@ -1,20 +1,30 @@
 var app = angular.module('myMovieCollectionApp');
 
-app.service('loginService', function($firebaseAuth, $location, $state) {
+app.service('loginService', function($firebaseAuth, $location, $state, $q) {
 
     var ref = new Firebase("https://mymoviecollection.firebaseio.com/");
 
-    var authObj = $firebaseAuth(ref);
-    var user = authObj.$getAuth();
+    this.authObj = $firebaseAuth(ref);
+
+    this.isAuthed;
+
+    this.checkAuth = function(){
+        if(ref.getAuth()){
+            console.log("setting isAUthed to true")
+            isAuthed = true;
+        } else {
+            isAuthed = false;
+        };
+        return isAuthed;
+    };
 
     this.login = function(email, pass) {
         this.authObj.$authWithPassword({
             email: email,
             password: pass
         }).then(function(authData) {
-            if (authData) {
-                $state.go('/search');
-
+            if(authData) {
+                $state.go('search');
                 console.log(authData);
             }
         }).catch(function(error) {
@@ -44,13 +54,12 @@ app.service('loginService', function($firebaseAuth, $location, $state) {
         });
     };
 
-    authObj.$onAuth(function(authObj) {
-        this.user = authObj;
-    });
-
     this.logout = function() {
+        var dfr = $q.defer();
         ref.unauth();
         $state.go('login');
+        dfr.resolve('hey guy');
+        return dfr.promise;
     };
 
 });
