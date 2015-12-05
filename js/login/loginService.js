@@ -24,7 +24,7 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
                     if (ifExists) {
                         console.log("User already exists");
                     } else {
-                        userRef.child(userId).push({
+                        userRef.child(userId).set({
                             id: userId
                         });
                     }
@@ -49,7 +49,7 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
                     if (ifExists) {
                         console.log("User already exists");
                     } else {
-                        userRef.child(userId).push({
+                        userRef.child(userId).set({
                             id: userId,
                             name: name
                         });
@@ -59,6 +59,7 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
             }
         });
     };
+    //.replace(provider + ':', '') - use is you want to get rid of google or facebook on firebase
 
     this.logout = function() {
         var dfr = $q.defer();
