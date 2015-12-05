@@ -2,6 +2,8 @@ var app = angular.module('myMovieCollectionApp');
 
 app.service('mainService', function($http, $q) {
 
+    var ref = new Firebase("https://mymoviecollection.firebaseio.com/");
+
     var movieDbKey = "6d8a480120db2ae36e07a48452b3e742";
 
     this.findMovies = function(searchValue) {
@@ -16,7 +18,7 @@ app.service('mainService', function($http, $q) {
         return dfr.promise;
     };
 
-    this.addMovie = function() {
+    this.addMovie = function(movie) {
 
     };
 

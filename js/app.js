@@ -1,4 +1,4 @@
-var app = angular.module('myMovieCollectionApp', ['ui.router', 'firebase', 'ngMaterial', 'ngAnimate', 'ngAria', 'ui.grid']);
+var app = angular.module('myMovieCollectionApp', ['ui.router', 'firebase', 'ngMaterial', 'ngAnimate', 'ngAria', 'ui.grid', 'ui.grid.resizeColumns', 'ui.grid.selection']);
 
 app.factory("auth", ["$firebaseAuth",
     function($firebaseAuth) {

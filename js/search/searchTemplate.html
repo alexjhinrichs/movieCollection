@@ -8,7 +8,7 @@
 	<div ng-repeat="movie in movieData" class="col-md-3 thumbnail text-center"> 
 		<img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
 		<h5>{{movie.original_title}}</h5>
-		<button class="btn btn-primary active" ng-click="addMovie()">Add to my Collection</button>
+		<button class="btn btn-primary active" ng-click="addMovie(movie)">Add to my Collection</button>
 
 
 

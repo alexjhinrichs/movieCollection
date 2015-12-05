@@ -4,7 +4,7 @@ app.controller('mainController', ['$scope', '$firebaseObject', '$firebaseArray',
     function($scope, $firebaseObject, $firebaseArray, $firebaseAuth, loginService) {
 
    		$scope.logout = function() {
-            loginService.logout();
+        loginService.logout();
         };
 
 

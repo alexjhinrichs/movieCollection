@@ -1,7 +1,9 @@
 var app = angular.module('myMovieCollectionApp');
 
 app.controller('loginController', ['$scope', '$firebaseAuth', '$firebaseObject', 'loginService', 'registerService',
-    function($scope, $firebaseAuth, $firebaseObj, loginService, registerService) {
+    function($scope, $firebaseAuth, $firebaseObject, loginService, registerService) {
+
+        var ref = new Firebase("https://mymoviecollection.firebaseio.com/");
 
         $scope.login = function(email, pass) {
             loginService.login(email, pass);
@@ -11,12 +13,8 @@ app.controller('loginController', ['$scope', '$firebaseAuth', '$firebaseObject',
             registerService.signUp(name, email, pass);
         };
 
-        $scope.googleLogin = function() {
-            loginService.googleLogin();
-        };
-
-        $scope.facebookLogin = function() {
-            loginService.facebookLogin();
+        $scope.oAuthLogin = function(provider) {
+            loginService.oAuthLogin(provider);
         };
 
 

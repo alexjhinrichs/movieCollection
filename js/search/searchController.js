@@ -10,8 +10,8 @@ app.controller('searchController', ['$scope', '$firebaseAuth', 'currentAuth', 'm
             });
         };
 
-       	$scope.addMovie = function() {
-       		mainService.addMovie();
+       	$scope.addMovie = function(movie) {
+          mainService.addMovie(movie);
        	};
 
     }]);
