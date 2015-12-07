@@ -1,5 +1,6 @@
 body {
 	padding-top: 50px;
+	background-image: url("http://fc07.deviantart.net/fs70/f/2013/174/3/e/recycled_texture_background_by_sandeep_m-d6aeau9.jpg");
 }
 
 .btn-facebook {
@@ -22,7 +23,18 @@ form p {
 }
 
 .thumbnail {
-	height: 510px;
+	height: 345px;
+	background-color: transparent;
+	border: none;
+}
+
+.thumbnail img {
+	height: 250px !important;
+	object-fit: cover;
+}
+
+h5 {
+	color: white;
 }
 
 form {
@@ -30,8 +42,8 @@ form {
 }
 
 img {
-	width: 277px;
-	height: 415px !important;
+	height: 115px !important;
+	object-fit: cover;
 }
 
 .tabsdemoDynamicHeight md-content {
@@ -53,5 +65,8 @@ img {
 
 .myGrid {
     width: 100%;
-    height: 500px;
+    height: auto;
   }
+.ui-grid-row { display : table-row; height: auto !important; position: static; } 
+.ui-grid-cell-contents{ height: auto !important; white-space: normal; overflow:visible; }
+.ui-grid-menu-button {width: 34px; height: 50px; }

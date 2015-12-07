@@ -6,19 +6,21 @@
       <!--Movies Tab -->
       <md-tab label="Movies">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Movies</h1>
-            <div>
-              <div ui-grid="gridOptions" ui-grid-resize-columns ui-grid-selection class="myGrid"></div>
-            </div>
+          <div>
+            <h1 class="md-display-2">Movies</h1>
+            <button id="restore" type="button" class="btn btn-danger" ng-click="getCurrentSelection()">Delete</button>
+            <div ui-grid="gridOptionsMovies" ui-grid-resize-columns ui-grid-selection class="myGrid"></div>
+          </div>
         </md-content>
       </md-tab><!--/Movies Tab-->
       <!--TV Shows Tab -->
       <md-tab label="TV Shows">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Tv Shows</h1>
-            <div>
-              <div ui-grid="gridOptions" ui-grid-resize-columns ui-grid-selection class="myGrid"></div>
-            </div>
+          <div>
+            <h1 class="md-display-2">Tv Shows</h1>
+            <button type="button" class="btn btn-danger" ng-click="getCurrentSelection()">Delete</button>
+            <div ui-grid="gridOptionsTvShows" ui-grid-resize-columns ui-grid-selection class="myGrid"></div>
+          </div>
         </md-content>
       </md-tab> <!--/TV Shows Tab -->
     </md-tabs> <!--/Tabs-->
