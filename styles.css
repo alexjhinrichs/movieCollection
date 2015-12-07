@@ -17,6 +17,10 @@ body {
 	display: block;
 }
 
+.btn:hover {
+	color: white;
+}
+
 form p {
 	text-align: center;
 	border-bottom: 1px solid black;

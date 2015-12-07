@@ -1,4 +1,4 @@
-<div ng-include="'navBarTemplate.html'" ng-show="authData"></div>
+<div ng-include="'navBarTemplate.html'" ng-show="isLoggedIn"></div>
 <div class="jumbotron col-md-6 col-md-offset-3 dash-head">
     <a href="" ng-click="showReg()">{{status}}</a>
     <div ng-show="!reg">

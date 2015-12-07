@@ -5,6 +5,8 @@ app.controller('loginController', ['$scope', '$firebaseAuth', '$firebaseObject',
 
         var ref = new Firebase("https://mymoviecollection.firebaseio.com/");
 
+        $scope.isLoggedIn = ref.getAuth();
+
         $scope.login = function(email, pass) {
             loginService.login(email, pass);
         };

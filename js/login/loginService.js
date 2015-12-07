@@ -7,8 +7,6 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
 
     this.authObj = $firebaseAuth(ref);
 
-    var authData = ref.getAuth();
-
     this.login = function(email, pass) {
         this.authObj.$authWithPassword({
             email: email,
@@ -64,10 +62,10 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
     this.logout = function() {
         var dfr = $q.defer();
         ref.unauth();
-        // location.reload();
         isLoggedIn = false;
-        $state.go('login');
+        if($state.is('login')) {location.reload();}
         dfr.resolve();
+        $state.go('login');
         return dfr.promise;
     };
 
