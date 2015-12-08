@@ -1,6 +1,8 @@
-body {
+html body {
 	padding-top: 50px;
+	height: 100%;
 	background-image: url("http://fc07.deviantart.net/fs70/f/2013/174/3/e/recycled_texture_background_by_sandeep_m-d6aeau9.jpg");
+    background-attachment: fixed;
 }
 
 .btn-facebook {
@@ -74,3 +76,12 @@ img {
 .ui-grid-row { display : table-row; height: auto !important; position: static; } 
 .ui-grid-cell-contents{ height: auto !important; white-space: normal; overflow:visible; }
 .ui-grid-menu-button {width: 34px; height: 50px; }
+.ui-grid-icon-container {
+	width: 33px;
+	height: 49px;
+	margin-top: 0 !important;
+}
+
+.ui-grid-icon-menu:before {
+    width: 25px !important;
+    margin-top: 15px;

@@ -18,7 +18,7 @@ app.controller('collectionController', ['$scope', '$firebaseAuth', 'currentAuth'
                 name: 'movieArt',
                 cellTemplate: "<img ng-src=\"{{grid.getCellValue(row, col)}}\" lazy-src>",
                 width: 75,
-                enableColumnResizing: true
+                enableColumnResizing: true,
             }, {
                 name: 'movieTitle',
                 width: 225,
