@@ -5,6 +5,15 @@ html body {
     background-attachment: fixed;
 }
 
+html body .jumbotron {
+	margin-top: 30px;
+}
+
+.form-inline {
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
 .btn-facebook {
 	background-color: #2D4373;
 }
@@ -26,6 +35,13 @@ html body {
 form p {
 	text-align: center;
 	border-bottom: 1px solid black;
+}
+
+.searchTitle {
+	text-align: center;
+	color: #9d9d9d;
+	font-weight: bold;
+	font-size: 45px;
 }
 
 .thumbnail {
