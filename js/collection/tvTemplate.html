@@ -1,0 +1,8 @@
+<div ng-include="'navBarTemplate.html'"></div>
+<div ng-app="myMovieCollectionApp">
+	<div class="backgroundContainer">
+	  <h1 class="pageTitle">Tv Shows</h1>
+	  <button type="button" class="btn btn-danger" ng-click="deleteSelection()">Delete</button>
+	  <div ui-grid="gridOptionsTvShows" ui-grid-resize-columns ui-grid-selection class="myGrid"></div>
+	</div>
+</div>

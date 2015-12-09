@@ -26,16 +26,16 @@ app.service('mainService', function($http, $q) {
         if (movie.media_type === "movie") {
             console.log("This was added to movies:" + movie);
             movieRef.child('movies').push({
-                movieArt: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
+                art: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
                 movieTitle: movie.original_title,
-                releaseDate: movie.release_date,
+                released: movie.release_date,
                 description: movie.overview,
                 type: movie.media_type
             });
         } else if (movie.media_type === "tv") {
             console.log("This was added to tv:" + movie);
             movieRef.child('tv').push({
-                tvArt: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
+                art: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
                 tvTitle: movie.name,
                 airDate: movie.first_air_date,
                 description: movie.overview,

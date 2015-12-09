@@ -24,10 +24,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 ]
             }
         })
-        .state('collection', {
-            url: '/collection',
-            templateUrl: '/js/collection/collectionTemplate.html',
-            controller: 'collectionController',
+        .state('movies', {
+            url: '/movies',
+            templateUrl: '/js/collection/moviesTemplate.html',
+            controller: 'moviesController',
             resolve: {
                 currentAuth: ["auth",
                     function(auth) {
@@ -36,18 +36,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 ]
             }
         })
-    .state('overview', {
-        url: '/overview',
-        templateUrl: '/js/overview/overviewTemplate.html',
-        controller: 'overviewController',
-        resolve: {
-            currentAuth: ["auth",
-                function(auth) {
-                    return auth.$requireAuth();
-                }
-            ]
-        }
-    })
+        .state('tv', {
+            url: '/tv',
+            templateUrl: '/js/collection/tvTemplate.html',
+            controller: 'tvController',
+            resolve: {
+                currentAuth: ["auth",
+                    function(auth) {
+                        return auth.$requireAuth();
+                    }
+                ]
+            }
+        })
         .state('login', {
             url: '/login',
             templateUrl: '/js/login/loginTemplate.html',
@@ -56,17 +56,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 });
 
-    app.config(function($mdThemingProvider) {
-        $mdThemingProvider.theme('darkTheme')
-            .primaryPalette('grey', {
-                'default': '600', // by default use shade 400 from the pink palette for primary intentions
-                'hue-1': '50', // use shade 100 for the <code>md-hue-1</code> class
-                'hue-2': '400', // use shade 600 for the <code>md-hue-2</code> class
-                'hue-3': '900' // use shade A100 for the <code>md-hue-3</code> class
-            })
-        // If you specify less than all of the keys, it will inherit from the
-        // default shades
-        .accentPalette('blue', {
-            'default': '900' // use shade 200 for default, and keep all other shades the same
-        });
+app.config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('darkTheme')
+        .primaryPalette('grey', {
+            'default': '600', // by default use shade 400 from the pink palette for primary intentions
+            'hue-1': '50', // use shade 100 for the <code>md-hue-1</code> class
+            'hue-2': '400', // use shade 600 for the <code>md-hue-2</code> class
+            'hue-3': '900' // use shade A100 for the <code>md-hue-3</code> class
+        })
+    // If you specify less than all of the keys, it will inherit from the
+    // default shades
+    .accentPalette('blue', {
+        'default': '900' // use shade 200 for default, and keep all other shades the same
     });
+});
