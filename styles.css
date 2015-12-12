@@ -101,10 +101,21 @@ img {
 .pageTitle {
 	margin-top: 0px;
 	margin-left: 15px;
-	display: inline-block;
 }
 
-.btn-danger {
+.updateButton {
 	float: right;
-	margin-right: 15px;
+}
+
+.counter {
+	float: right;
+	margin-top: 6px;
+}
+
+.backgroundContainer .form-inline {
+	margin: 0;
+}
+
+.row {
+	padding: 0 15px;
 }

@@ -1,19 +1,24 @@
 var app = angular.module('myMovieCollectionApp');
 
-app.controller('tvController', ['$scope', '$firebaseAuth', 'currentAuth', '$firebaseArray', 'mainService', 'collectionService',
-    function($scope, $firebaseAuth, currentAuth, $firebaseArray, mainService, collectionService) {
-
-        $scope.getTvShows = collectionService.getTvShows();
+app.controller('tvController', ['$scope', '$firebaseAuth', 'currentAuth', '$firebaseArray', 'mainService', 'collectionService', 'data',
+    function($scope, $firebaseAuth, currentAuth, $firebaseArray, mainService, collectionService, data) {
 
         var ref = new Firebase("https://mymoviecollection.firebaseio.com/");
         var user = ref.getAuth();
         var movieRef = ref.child('users').child(user.uid);
 
         $scope.gridOptionsTvShows = {
+            onRegisterApi: function(gridApi){
+                $scope.gridApi = gridApi;
+                $scope.gridApi.grid.registerRowsProcessor( $scope.singleFilter, 200 );
+                gridApi.selection.on.rowSelectionChanged($scope,function(row){
+                });
+            },
             enableSorting: true,
             enableGridMenu: true,
-            data: $firebaseArray($scope.getTvShows),
+            data: data,
             enableRowSelection: true,
+            enableFiltering: false,
             enableRowHeaderSelection: false,
             multiSelect: false,
             enableSelectionBatchEvent: false,
@@ -38,18 +43,35 @@ app.controller('tvController', ['$scope', '$firebaseAuth', 'currentAuth', '$fire
                 enableColumnResizing: true
             }]
         };
-
-        $scope.gridOptionsTvShows.onRegisterApi = function(gridApi){
-          $scope.gridApi = gridApi;
-          gridApi.selection.on.rowSelectionChanged($scope,function(row){
-          });
-        };
         
         $scope.deleteSelection = function(){
           angular.forEach($scope.gridApi.selection.getSelectedRows(), function (data, index) {
             var key = $scope.gridOptionsTvShows.data[$scope.gridOptionsTvShows.data.lastIndexOf(data)].$id;
             movieRef.child('tv').child(key).remove();
           });
-        }
+        };
+        $scope.filter = function() {
+            $scope.gridApi.grid.refresh().then(function() {
+                $scope.filterValue = '';
+            });
+        };
+    
+        $scope.singleFilter = function( renderableRows ){
+            var matcher = new RegExp($scope.filterValue);
+            renderableRows.forEach( function( row ) {
+              var match = false;
+              [ 'tvTitle' ].forEach(function( field ){
+                if ( row.entity[field].match(matcher) ){
+                  match = true;
+                }
+              });
+              if ( !match ){
+                row.visible = false;
+              }
+            });
+            return renderableRows;
+        };
+
+        $scope.tvCount = data.length;
     }
 ]);

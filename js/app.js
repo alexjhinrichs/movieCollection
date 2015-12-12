@@ -1,4 +1,4 @@
-var app = angular.module('myMovieCollectionApp', ['ui.router', 'firebase', 'ngMaterial', 'ngAnimate', 'ngAria', 'ui.grid', 'ui.grid.resizeColumns', 'ui.grid.selection']);
+var app = angular.module('myMovieCollectionApp', ['ui.router', 'firebase', 'ngMaterial', 'ngAnimate', 'ngAria', 'ui.grid', 'ui.grid.resizeColumns', 'ui.grid.selection', 'ui.grid.saveState', 'ui.grid.moveColumns']);
 
 app.factory("auth", ["$firebaseAuth",
     function($firebaseAuth) {
@@ -33,6 +33,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     function(auth) {
                         return auth.$requireAuth();
                     }
+                ],
+                data: ["collectionService",
+                    function(collectionService) {
+                        return collectionService.getMovies();a
+                    }
                 ]
             }
         })
@@ -44,6 +49,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 currentAuth: ["auth",
                     function(auth) {
                         return auth.$requireAuth();
+                    }
+                ],
+                data: ["collectionService",
+                    function(collectionService) {
+                        return collectionService.getTvShows();
                     }
                 ]
             }

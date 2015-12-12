@@ -24,7 +24,7 @@ app.service('mainService', function($http, $q) {
 
     this.addMovie = function(movie) {
         if (movie.media_type === "movie") {
-            console.log("This was added to movies:" + movie);
+            alert("This movie was added to your collection: " + movie.original_title);
             movieRef.child('movies').push({
                 art: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
                 movieTitle: movie.original_title,
@@ -33,7 +33,7 @@ app.service('mainService', function($http, $q) {
                 type: movie.media_type
             });
         } else if (movie.media_type === "tv") {
-            console.log("This was added to tv:" + movie);
+            alert("This TV show was added to your collection: " + movie.name);
             movieRef.child('tv').push({
                 art: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
                 tvTitle: movie.name,
