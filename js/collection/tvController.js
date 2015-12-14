@@ -23,6 +23,7 @@ app.controller('tvController', ['$scope', '$firebaseAuth', 'currentAuth', '$fire
             multiSelect: false,
             enableSelectionBatchEvent: false,
             rowHeight: 115,
+            minRowsToShow: data.length,
             columnDefs: [{
                 name: 'art',
                 cellTemplate: "<img ng-src=\"{{grid.getCellValue(row, col)}}\" lazy-src>",

@@ -68,28 +68,12 @@ img {
 	object-fit: cover;
 }
 
-.tabsdemoDynamicHeight md-content {
-  background-color: transparent !important; 
-}
-
-.tabsdemoDynamicHeight md-content md-tabs {
-    background: #f6f6f6;
-    border: 1px solid #e1e1e1; 
-}
-
-.tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
-      background: white; 
-}
-
-.tabsdemoDynamicHeight md-content h1:first-child {
-    margin-top: 0; 
-}
-
 .myGrid {
     width: 100%;
     height: auto;
     background-color: white;
-  }
+}
+
 .ui-grid-row { display : table-row; height: auto !important; position: static; } 
 .ui-grid-cell-contents{ height: auto !important; white-space: normal; overflow:visible; }
 
@@ -118,4 +102,12 @@ img {
 
 .row {
 	padding: 0 15px;
+}
+
+.modal-header {
+	background-color: black;
+}
+
+.bootstrap-dialog-title {
+	color: white;
 }

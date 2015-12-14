@@ -16,7 +16,6 @@ app.service('mainService', function($http, $q) {
             method: 'GET',
             url: "http://api.themoviedb.org/3/search/multi?api_key=" + movieDbKey + "&query=" + searchValue
         }).then(function(result) {
-            console.log(result);
             dfr.resolve(result);
         });
         return dfr.promise;
@@ -24,7 +23,19 @@ app.service('mainService', function($http, $q) {
 
     this.addMovie = function(movie) {
         if (movie.media_type === "movie") {
-            alert("This movie was added to your collection: " + movie.original_title);
+            BootstrapDialog.show({
+            title: "Congratulations!!!",
+            message: movie.original_title + ' was added to your movies collection',
+            buttons: [{
+                icon: 'glyphicon glyphicon-check',       
+                label: 'OK',
+                cssClass: 'btn-primary', 
+                autospin: false,
+                action: function(dialogRef){    
+                    dialogRef.close();
+                  }
+              }]
+          });
             movieRef.child('movies').push({
                 art: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
                 movieTitle: movie.original_title,
@@ -33,7 +44,19 @@ app.service('mainService', function($http, $q) {
                 type: movie.media_type
             });
         } else if (movie.media_type === "tv") {
-            alert("This TV show was added to your collection: " + movie.name);
+            BootstrapDialog.show({
+            title: "Congratulations!!!",
+            message: movie.name + ' was added to your TV collection',
+            buttons: [{
+                icon: 'glyphicon glyphicon-check',       
+                label: 'OK',
+                cssClass: 'btn-primary', 
+                autospin: false,
+                action: function(dialogRef){    
+                    dialogRef.close();
+                  }
+              }]
+          });
             movieRef.child('tv').push({
                 art: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
                 tvTitle: movie.name,

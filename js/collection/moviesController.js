@@ -16,6 +16,7 @@ app.controller('moviesController', ['$scope', '$firebaseAuth', 'currentAuth', '$
             },
             enableSorting: true,
             enableGridMenu: true,
+            flatEntityAccess: true,
             data: data,
             enableRowSelection: true,
             enableRowHeaderSelection: false,
@@ -23,6 +24,7 @@ app.controller('moviesController', ['$scope', '$firebaseAuth', 'currentAuth', '$
             multiSelect: false,
             rowHeight: 115,
             enableSelectionBatchEvent: false,
+            minRowsToShow: data.length,
             columnDefs: [{
                 name: 'art',
                 cellTemplate: "<img ng-src=\"{{grid.getCellValue(row, col)}}\" lazy-src>",
@@ -57,7 +59,7 @@ app.controller('moviesController', ['$scope', '$firebaseAuth', 'currentAuth', '$
                 $scope.filterValue = '';
             });
         };
-    
+
         $scope.singleFilter = function( renderableRows ){
             var matcher = new RegExp($scope.filterValue);
             renderableRows.forEach( function( row ) {
