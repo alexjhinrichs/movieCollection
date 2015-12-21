@@ -5,7 +5,6 @@ app.controller('searchController', ['$scope', '$firebaseAuth', 'currentAuth', 'm
 
         $scope.findMovies = function(searchValue) {
             mainService.findMovies($scope.searchValue).then(function(result) {
-                console.log(result);
                 $scope.movieData = result.data.results;
                 $scope.searchValue = '';
             });

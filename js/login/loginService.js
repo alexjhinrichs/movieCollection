@@ -14,13 +14,10 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
         }).then(function(authData) {
             if (authData) {
                 $state.go('search');
-                console.log(authData);
-                console.log("User " + authData.uid + " is logged in");
                 var userId = authData.uid;
                 userRef.child(userId).once("value", function(snapshot) {
                     var ifExists = snapshot.exists();
                     if (ifExists) {
-                        console.log("User already exists");
                     } else {
                         userRef.child(userId).set({
                             id: userId
@@ -37,15 +34,13 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
     this.oAuthLogin = function(provider) {
         ref.authWithOAuthPopup(provider, function(error, authData) {
             if (error) {
-                console.log(error);
+                alert(error);
             } else if (authData) {
-                console.log("User " + authData.uid + " is logged in with " + authData.provider);
                 var userId = authData.uid;
                 var name = authData[authData.provider].displayName;
                 userRef.child(userId).once("value", function(snapshot) {
                     var ifExists = snapshot.exists();
                     if (ifExists) {
-                        console.log("User already exists");
                     } else {
                         userRef.child(userId).set({
                             id: userId,

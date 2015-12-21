@@ -14,11 +14,12 @@ app.service('mainService', function($http, $q) {
         var dfr = $q.defer();
         $http({
             method: 'GET',
-            url: "http://api.themoviedb.org/3/search/multi?api_key=" + movieDbKey + "&query=" + searchValue
+            url: "https://api.themoviedb.org/3/search/multi?api_key=" + movieDbKey + "&query=" + searchValue
         }).then(function(result) {
             dfr.resolve(result);
         });
         return dfr.promise;
+
     };
 
     this.addMovie = function(movie) {
@@ -37,7 +38,7 @@ app.service('mainService', function($http, $q) {
               }]
           });
             movieRef.child('movies').push({
-                art: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
+                art: "https://image.tmdb.org/t/p/w500" + movie.poster_path,
                 movieTitle: movie.original_title,
                 released: movie.release_date,
                 description: movie.overview,
@@ -58,7 +59,7 @@ app.service('mainService', function($http, $q) {
               }]
           });
             movieRef.child('tv').push({
-                art: "http://image.tmdb.org/t/p/w500" + movie.poster_path,
+                art: "https://image.tmdb.org/t/p/w500" + movie.poster_path,
                 tvTitle: movie.name,
                 airDate: movie.first_air_date,
                 description: movie.overview,

@@ -1,7 +1,7 @@
 html body {
 	padding-top: 50px;
 	height: 100%;
-	background-image: url("http://fc07.deviantart.net/fs70/f/2013/174/3/e/recycled_texture_background_by_sandeep_m-d6aeau9.jpg");
+	background-image: url("/images/backgroundImage.jpg");
     background-attachment: fixed;
 }
 
@@ -51,7 +51,7 @@ form p {
 }
 
 .thumbnail img {
-	height: 250px !important;
+	height: 75% !important;
 	object-fit: cover;
 }
 
@@ -66,6 +66,12 @@ form {
 img {
 	height: 115px !important;
 	object-fit: cover;
+}
+
+.siteExplain {
+	text-align: center;
+	color: #9d9d9d;
+	margin-top: -5px;
 }
 
 .myGrid {
@@ -87,14 +93,15 @@ img {
 	margin-left: 15px;
 }
 
-.updateButton {
-	float: right;
-}
-
 .counter {
 	float: right;
 	margin-top: 6px;
 }
+
+.updateButton {
+	float: right;
+}
+
 
 .backgroundContainer .form-inline {
 	margin: 0;
