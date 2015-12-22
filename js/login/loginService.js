@@ -7,7 +7,7 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
 
     this.authObj = $firebaseAuth(ref);
 
-    this.login = function(email, pass) {
+    this.login = function(email, name, pass) {
         this.authObj.$authWithPassword({
             email: email,
             password: pass
@@ -20,10 +20,11 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
                     if (ifExists) {
                     } else {
                         userRef.child(userId).set({
-                            id: userId
+                            id: userId,
+                            email: email,
+                            name: name
                         });
                     }
-
                 });
             }
         }).catch(function(error) {
@@ -58,7 +59,9 @@ app.service('loginService', function($firebaseAuth, $firebaseObject, $location, 
         var dfr = $q.defer();
         ref.unauth();
         isLoggedIn = false;
-        if($state.is('login')) {location.reload();}
+        if($state.is('login')) {
+            location.reload();
+        }
         dfr.resolve();
         $state.go('login');
         return dfr.promise;

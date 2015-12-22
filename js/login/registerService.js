@@ -16,7 +16,7 @@ app.service('registerService', function($firebaseArray, $firebaseAuth, $location
                     alert(error);
                 } else {
                     alert("Successfully created user account");
-                    loginService.login(email, pass);
+                    loginService.login(email, name, pass);
                 }
             });
         }
